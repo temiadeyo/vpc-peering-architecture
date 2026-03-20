@@ -28,16 +28,6 @@ Each VPC contains:
 - One EC2 instance for connectivity testing
 
 --- 
-  
-### VPC Networking Components  
-  
-- VPC Peering Connection  
-- Public Subnets  
-- Route Tables  
-- Internet Gateway  
-- Security Groups  
-- Network ACLs
----
 
 ## Project Walkthrough  
 
@@ -77,7 +67,7 @@ Both VPCs use non-overlapping CIDR ranges to allow proper routing.
 
 ![Peering Connection Setup 2](images/peering-setup2.png)  
   
-Once created, the peering connection enters a pending state until the accepter approves it.  This means that the connection exists, but traffic cannot flow until approval.  
+Once created, the peering connection enters a pending state until the accepter approves it.  
   
 ![Peering Request Sent](images/peering-request-sent.png)
   
@@ -133,9 +123,7 @@ The EC2 instance in VPC 1 was initially launched without a public IP address.
 To enable SSH access using EC2 Instance Connect, an Elastic IP was allocated and associated with the instance.  
   
 EC2 Instance Connect requires a public IPv4 address for inbound connectivity when accessing instances over the internet.  
-  
-An Elastic IP provides a static public IPv4 address that remains consistent across instance restarts, unlike the default dynamic public IP assigned by AWS.  
-  
+    
 ![Elastic IP Allocation](images/elastic-ip-allocated.png)  
   
 ![Elastic IP Allocation and Association](images/elastic-ip-associated.png)  
@@ -148,9 +136,6 @@ Once associated, the EC2 instance received a public IPv4 address, allowing secur
 
 ### 6. Security & Connectivity Troubleshooting  
 
-
-During connectivity testing, several issues were identified and resolved.  
-  
 **Issues encountered:**  
 - SSH access to the VPC 1 instance was blocked by its default security group  
 - ICMP traffic between VPC 1 and VPC 2 was blocked by VPC 2’s default security group  

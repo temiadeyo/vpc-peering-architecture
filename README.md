@@ -28,13 +28,6 @@ Each VPC contains:
 - One EC2 instance for connectivity testing
 
 --- 
-
-## AWS Services Used  
-  
-- Amazon VPC  
-- Amazon EC2  
-  
- ---
   
 ### VPC Networking Components  
   
